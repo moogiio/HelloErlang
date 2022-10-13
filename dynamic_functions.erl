@@ -1,15 +1,20 @@
 -module(dynamic_functions).
--export([dynamic_list/1, reverse/1]).
+-export([initialise_list/1, reverse/1]).
 
-dynamic_list(N) ->
+-define(LEFT, -1).
+-define(RIGHT, 1).
+
+
+initialise_list(N) ->
     create_list(N, []).
 
-
+% Initialise new list with N entries (5) = [1,2,3,4,5]
 create_list(0, List) ->
     List;
-create_list(N, [H | T]) ->
-    create_list(N - 1, [T] ++ [H]).
+create_list(N, List) ->
+    create_list(N - 1, [N | List]).
 
+% Reverse List ([1,2,3]) => [3,2,1]
 reverse([]) ->
     [];
 reverse([H | T]) ->
