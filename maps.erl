@@ -11,4 +11,3 @@
 % 9. AllKeys = maps:keys(OriginalScores).
 % 10. RemoveScore = maps:remove("Adam", OriginalScores).
 % 11. ScoreWitout = maps:without(["Adam", "John"], RemoveScore).
-% 
