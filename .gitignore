@@ -1,3 +1,7 @@
 *.beam
 *.lock
 *.config
+*.log
+*.LOG
+*.dat
+*.DAT
