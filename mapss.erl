@@ -11,3 +11,14 @@
 % 9. AllKeys = maps:keys(OriginalScores).
 % 10. RemoveScore = maps:remove("Adam", OriginalScores).
 % 11. ScoreWitout = maps:without(["Adam", "John"], RemoveScore).
+
+-module(mapss).
+-export([standardize_measures_to_cm/1]).
+
+standardize_measures_to_cm(Measure) ->
+    standardize_measures_to_cm(Measure, []).
+
+standardize_measures_to_cm([{cm, _} = Measure | T], Acc) ->
+    standardize_measures_to_cm(T, [Measure | Acc]);
+standardize_measures_to_cm([{m, Value} | T], Acc) ->
+    standardize_measures_to_cm(T, [{cm, round(Value * 100)} | Acc]).
